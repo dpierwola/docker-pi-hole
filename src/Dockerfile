@@ -9,8 +9,7 @@ ENTRYPOINT [ "/s6-init" ]
 COPY s6/debian-root /
 COPY s6/service /usr/local/bin/service
 
-RUN bash -ex install.sh 2>&1 && \
-    rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
+RUN bash -ex install.sh 2>&1
 
 ARG PHP_ERROR_LOG
 ENV PHP_ERROR_LOG /var/log/lighttpd/error-pihole.log
